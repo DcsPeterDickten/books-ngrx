@@ -1,15 +1,11 @@
-import { filter, map, timer } from 'rxjs';
+import { Subject } from 'rxjs';
 
-// const obs1$ = of(42, 43, 44);
-// const obs2$ = from([1, 2, 3]);
-const obs3$ = timer(0, 500); // läuft endlos
+const mySubject$ = new Subject();
 
-// obs1$.subscribe(console.log);
-// obs2$.subscribe(console.log);
+mySubject$.next('Jemand zuhause?');
 
-obs3$.pipe(
-    filter((x) => x % 2 === 0), // nur gerade
-    map((x) => x * 10)          // ver-10-fachen
-).subscribe(
-    console.log
-);
+mySubject$.subscribe(e => console.log(e));
+mySubject$.subscribe(e => console.log(e));
+
+mySubject$.next('Hallo');
+mySubject$.next('Welt :-) ');
