@@ -1,11 +1,12 @@
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-const mySubject$ = new Subject();
+const mySubject$ = new BehaviorSubject('Jemand zuhause?');
 
-mySubject$.next('Jemand zuhause?');
+mySubject$.subscribe(e => console.log(1, e));
 
-mySubject$.subscribe(e => console.log(e));
-mySubject$.subscribe(e => console.log(e));
+// next() überschreibt den Startwert
+mySubject$.next('ich glaube schon');
 
-mySubject$.next('Hallo');
-mySubject$.next('Welt :-) ');
+mySubject$.subscribe(e => console.log(2, e));
+
+mySubject$.next('na klar');
