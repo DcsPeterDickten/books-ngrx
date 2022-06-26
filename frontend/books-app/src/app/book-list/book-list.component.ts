@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'books-book-list',
@@ -7,7 +7,14 @@ import { interval } from 'rxjs';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
+
+  private mySubscription: any;
+
   ngOnInit(): void {
-    interval(1000).subscribe(x => console.log('BookListComponent', x));
+    this.mySubscription = interval(1000).subscribe(x => console.log(x));
+  }
+
+  ngOnDestroy(): void {
+    this.mySubscription.unsubscribe();
   }
 }
