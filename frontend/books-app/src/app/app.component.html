@@ -3,4 +3,9 @@
   <a routerLink="/book/1">Buch 1</a>
 </p>
 
+<div>Current: {{ count$ | async }}</div>
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset Counter</button>
+
 <router-outlet></router-outlet>
