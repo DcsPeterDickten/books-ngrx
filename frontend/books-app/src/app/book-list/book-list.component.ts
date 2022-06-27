@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+import { interval, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'books-book-list',
@@ -8,13 +8,15 @@ import { interval, Subscription } from 'rxjs';
 })
 export class BookListComponent implements OnInit {
 
-  private mySubscription: any;
+  private destroy$ = new Subject<string>();
 
   ngOnInit(): void {
-    this.mySubscription = interval(1000).subscribe(x => console.log(x));
+    interval(1000).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(x => console.log(x));
   }
 
   ngOnDestroy(): void {
-    this.mySubscription.unsubscribe();
+    this.destroy$.next("he's dead, Jim");
   }
 }
