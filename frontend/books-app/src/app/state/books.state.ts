@@ -1,8 +1,8 @@
 import { Book } from "../models/book";
 
 export interface Books {
-    // Eindeutiges Merkmal (ISBN) als Key
-   [isbn: string]: Book;
+  // Eindeutiges Merkmal (ISBN) als Key
+  [isbn: string]: Book;
 }
 
 export interface Filter {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Subject, takeUntil } from 'rxjs';
+import { Books } from '../state/books.state';
 
 @Component({
   selector: 'books-book-list',
@@ -8,15 +8,16 @@ import { interval, Subject, takeUntil } from 'rxjs';
 })
 export class BookListComponent implements OnInit {
 
-  private destroy$ = new Subject<string>();
+  allBooks: Books = { "42": { isbn: '42', title: 'NgRx reloaded', author: 'PD', category: 'tech', available: true } };
 
   ngOnInit(): void {
-    interval(1000).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(x => console.log(x));
-  }
+    const bestseller = this.allBooks['42'];
+    console.log({ bestseller });
 
-  ngOnDestroy(): void {
-    this.destroy$.next("he's dead, Jim");
+    const ids = Object.keys(this.allBooks);
+    console.log({ ids });
+
+    const bookArray = Object.values(this.allBooks);
+    console.log({ bookArray });
   }
 }
