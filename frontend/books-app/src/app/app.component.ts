@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'books-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'books-app';
+
+  count$: Observable<number> = of(0);
+  constructor() { }
+  increment() { }
+  decrement() { }
+  reset() { }
 }
