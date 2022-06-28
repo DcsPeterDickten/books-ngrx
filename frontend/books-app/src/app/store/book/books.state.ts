@@ -1,4 +1,4 @@
-import { Book } from "../models/book";
+import { Book } from "../../models/book";
 
 export interface Books {
   // Eindeutiges Merkmal (ISBN) als Key
