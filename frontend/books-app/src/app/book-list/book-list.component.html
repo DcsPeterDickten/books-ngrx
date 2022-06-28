@@ -1,3 +1,11 @@
+<input
+  placeholder="Filtern nach ...."
+  #searchInput
+  type="text"
+  (input)="search(searchInput.value)"
+/>
+
+Ergebnis: {{(books$ | async)?.length}}
 <ul>
   <li *ngFor="let book of books$ | async">
     <p>
