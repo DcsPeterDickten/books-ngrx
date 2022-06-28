@@ -13,7 +13,26 @@ const action = neuesBuch({
     author: '...',
     category: 'poems',
     available: true
-  }}
+  }
+}
 );
 
+export const neuesBuchMitId = createAction(
+  "[Book] Neuanlage",
+  (book: Book) => {
+    return {
+      book: {
+        ...book,
+        id: Math.random().toString(36).substr(2, 10),
+      },
+    }
+  }
+);
 
+const book2 = neuesBuchMitId({
+  isbn: '42',
+  title: '...',
+  author: '...',
+  category: 'poems',
+  available: true
+})
