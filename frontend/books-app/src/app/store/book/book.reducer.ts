@@ -1,8 +1,7 @@
 import produce from "immer"
-import { initialState } from './book.state';
 import { on, createReducer } from '@ngrx/store';
 import * as BookActions  from './book.actions';
-import { Books } from "./books.state";
+import { initialState } from "./books.state";
 
 export const bookReducer = createReducer(
   initialState,
