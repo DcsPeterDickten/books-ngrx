@@ -17,4 +17,8 @@ export class BookListComponent {
   constructor(private store: Store<RootState>) {
     this.books$ = this.store.select(fromBook.selectAll);
   }
+
+  search(text: string): void {
+    // TODO
+  }
 }
