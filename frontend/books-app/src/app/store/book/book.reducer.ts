@@ -1,25 +1,20 @@
-import { createReducer, on } from '@ngrx/store';
-import { initialState } from './books.state';
-import * as BookActions      from "./book.actions";
-
-// export const bookReducer = createReducer(
-//    initialState,
-//    on(BookActions.neuesBuch, (state, { book }) =>  return {})
-// );
+import produce from "immer"
+import { initialState } from './book.state';
+import { on, createReducer } from '@ngrx/store';
+import * as BookActions  from './book.actions';
+import { Books } from "./books.state";
 
 export const bookReducer = createReducer(
   initialState,
-  on(BookActions.neuesBuch, (state, { book }) => {
-    return {
-      ...state,                 // 3 - neuer State
-      entities: {               // 2 - neue Buchliste (entities)
-        ...state.entities,
-        [book.isbn]: {          // 1 - neues Buch
-          ...book,              // 1
-          available: true,      // 1
-        },
-      },                        // 2
-    };                          // 3
-  })
+  on(BookActions.neuesBuch, (state, { book }) =>
+    produce(state, (draft: any) => {
+
+      draft.entities[book.isbn] = {
+        ...book,
+        available: true,
+      }
+
+    })
+  )
 );
 

@@ -1,9 +1,14 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
 
+  <label for="isbn">ISBN</label>
+  <input formControlName="isbn" type="text" id="isbn" />
+
   <label for="text">Titel</label>
   <input formControlName="title" type="text" id="title" />
 
-  // ...
+  <label for="author">Autor</label>
+  <input formControlName="author" type="text" id="author" />
+
   <label for="category">Kategorie</label>
   <select formControlName="category" id="category">
     <option value="tech">tech</option>
