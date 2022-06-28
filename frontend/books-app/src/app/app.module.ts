@@ -9,6 +9,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { counterReducer } from './counter/counter.reducer';
 import { modules } from './modules';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CreateBookComponent } from './create-book/create-book.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer }),
     modules,
   ],
