@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Books } from '../store/book/books.state';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Book } from 'src/app/models/book';
+import { RootState } from 'src/app/store/';
+import * as fromBook from 'src/app/store/book/book.selectors';
 
 @Component({
-  selector: 'books-book-list',
+  selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent {
 
-  allBooks: Books = { "42": { isbn: '42', title: 'NgRx reloaded', author: 'PD', category: 'tech', available: true } };
+  books$: Observable<Book[]>;
 
-  ngOnInit(): void {
-    const bestseller = this.allBooks['42'];
-    console.log({ bestseller });
-
-    const ids = Object.keys(this.allBooks);
-    console.log({ ids });
-
-    const bookArray = Object.values(this.allBooks);
-    console.log({ bookArray });
+  constructor(private store: Store<RootState>) {
+    this.books$ = this.store.select(fromBook.selectAll);
   }
 }
