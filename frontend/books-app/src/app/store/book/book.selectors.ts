@@ -66,3 +66,8 @@ export const selectStats = createSelector(
     }
   }
 );
+
+export const selectLoading = createSelector(
+  selectFeature,
+  ({ loading }) => loading
+);
