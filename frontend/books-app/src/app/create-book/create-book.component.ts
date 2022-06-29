@@ -27,7 +27,7 @@ export class CreateBookComponent implements OnInit {
   submit() {
     const id = 41;
     const book = { ...this.form.value, id };
-    console.log(book);
+    // console.log(book);
     this.store.dispatch(BooksActions.neuesBuch({ book }));
   }
 }

@@ -11,6 +11,7 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   save(book: Book): Observable<Book> {
+    // console.log({book});
     return this.http.post<Book>(`http://localhost:3000/books`, book)
   }
 }
