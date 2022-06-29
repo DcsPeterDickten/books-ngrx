@@ -8,10 +8,15 @@ import { Book } from 'src/app/models/book';
 })
 export class BookService {
 
+  private URL = 'http://localhost:4000/books';
+
   constructor(private http: HttpClient) { }
 
   save(book: Book): Observable<Book> {
-    // console.log({book});
-    return this.http.post<Book>(`http://localhost:4000/books`, book)
+    return this.http.post<Book>(this.URL, book)
+  }
+
+  getAll(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.URL);
   }
 }
