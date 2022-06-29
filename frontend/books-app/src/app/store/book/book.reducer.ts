@@ -21,6 +21,18 @@ export const bookReducer = createReducer(
       ...state.filter,
       text,
     },
-  }))
+  })),
+  on(BookActions.neuesBuchGespeichert, (state, { book }) => {
+    return {
+      ...state,                 // 3 - neuer State
+      entities: {               // 2 - neue Buchliste (entities)
+        ...state.entities,
+        [book.isbn]: {          // 1 - neues Buch
+          ...book,              // 1
+          available: true,      // 1
+        },
+      },                        // 2
+    };                          // 3
+  })
 );
 
