@@ -6,6 +6,11 @@ export const neuesBuch = createAction(
   props<{ book: Book }>() // << () nicht vergessen!
 );
 
+export const neuesBuchGespeichert = createAction(
+  "[Book] Gespeichert",
+  props<{ book: Book }>()
+);
+
 export const neuesBuchMitId = createAction(
   "[Book] Neuanlage",
   (book: Book) => {
