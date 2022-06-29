@@ -20,13 +20,15 @@ export class BookEffects {
   submit$ = createEffect(() =>
     this.action$.pipe(
       ofType(BookActions.neuesBuch),
-      withLatestFrom(this.store.select(fromBook.selectAll)),
-      filter(([action, books]) =>
-        books.every(
-          ({ title }) => title !== action.book.title
-        )
+      // withLatestFrom(this.store.select(fromBook.selectAll)),
+      // filter(([action, books]) =>
+      //   books.every(
+      //     ({ title }) => title !== action.book.title
+      //   )
+      // ),
+      mergeMap(
+        (action) => this.bookService.save(action.book)
       ),
-      mergeMap(([action, books]) => this.bookService.save(action.book)),
       map((book) => BookActions.neuesBuchGespeichert({ book }))
     )
   );
