@@ -1,6 +1,7 @@
 import { bookReducer } from "./book.reducer";
 import { INIT } from "@ngrx/store";
-import { initialState } from './books.state';
+import { BookState, initialState } from './books.state';
+import * as BookActions from './book.actions';
 
 describe("Book Reducer", () => {
   describe("init action", () => {
@@ -16,4 +17,25 @@ describe("Book Reducer", () => {
       expect(nextState).toBe(initialState);
     });
   });
+
+  describe("resolve", () => {
+    it("should load a book", () => {
+      const isbn = "42";
+      const state: BookState = {
+        ...initialState,
+        entities: {
+          [isbn]: {
+            isbn: isbn,
+            author: "PD",
+            title: "Test Books",
+            category: "tech",
+            available: true,
+          },
+        }
+      };
+      const nextState = bookReducer(state, BookActions.search({ text: isbn }));
+      expect(nextState.entities[isbn].title).toBe("Test Books");
+    });
+  });
+
 });
