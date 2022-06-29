@@ -13,53 +13,18 @@
       "category": "tech"
     },
     {
-      "title": "b",
-      "isbn": "a",
-      "author": "c",
-      "category": "tech",
-      "id": 41
-    },
-    {
-      "title": "c",
-      "isbn": "b",
+      "title": "t",
+      "isbn": "i",
       "author": "a",
       "category": "tech",
       "id": 41
     },
     {
-      "title": "aaa",
-      "isbn": "aaa",
-      "author": "aaaa",
+      "title": "t",
+      "isbn": "i",
+      "author": "a",
       "category": "tech",
-      "id": 41
-    },
-    {
-      "title": "bbb",
-      "isbn": "bbb",
-      "author": "bbb",
-      "category": "tech",
-      "id": 41
-    },
-    {
-      "title": "44",
-      "isbn": "44",
-      "author": "44",
-      "category": "tech",
-      "id": 41
-    },
-    {
-      "title": "45",
-      "isbn": "45",
-      "author": "45",
-      "category": "tech",
-      "id": 41
-    },
-    {
-      "title": "45b",
-      "isbn": "45a",
-      "author": "45c",
-      "category": "tech",
-      "id": 41
+      "id": 42
     }
   ]
 }

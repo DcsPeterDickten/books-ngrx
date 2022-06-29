@@ -9,7 +9,7 @@
     "test": "ng test",
     "serve": "ng serve",
     "serve:prod": "ng serve --configuration production",
-    "db:mock": "json-server -i isbn --watch src/data/db.json"
+    "db:mock": "json-server --watch src/data/db.json"
   },
   "private": true,
   "dependencies": {
