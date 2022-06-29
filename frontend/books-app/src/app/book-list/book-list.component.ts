@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { RootState } from 'src/app/store/';
-import * as fromBook from 'src/app/store/book/book.selectors';
 import * as BookActions from 'src/app/store/book/book.actions';
+import * as fromBook from 'src/app/store/book/book.selectors';
 import { BookStats } from 'src/app/store/book/book.selectors';
 @Component({
   selector: 'app-book-list',
@@ -24,7 +24,6 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(BookActions.buecherLaden());
   }
 
   search(text: string): void {

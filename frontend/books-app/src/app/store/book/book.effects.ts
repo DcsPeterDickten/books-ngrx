@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
+import { Actions, createEffect, ofType, OnInitEffects } from "@ngrx/effects";
+import { Action, Store } from "@ngrx/store";
 import { EMPTY } from "rxjs";
 import { catchError, map, mergeMap, switchMap } from "rxjs/operators";
 
@@ -10,12 +10,16 @@ import * as BookActions from "./book.actions";
 import { BookService } from "./book.service";
 
 @Injectable()
-export class BookEffects {
+export class BookEffects implements OnInitEffects  {
 
   constructor(
     private action$: Actions,
     private bookService: BookService,
     private store: Store<RootState>) { }
+
+  ngrxOnInitEffects(): Action {
+    return BookActions.buecherLaden();
+  }
 
   submit$ = createEffect(() =>
     this.action$.pipe(
