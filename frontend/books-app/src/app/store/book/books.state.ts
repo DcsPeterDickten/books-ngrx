@@ -12,6 +12,8 @@ export interface Filter {
 export interface BookState {
   entities: Books;
   filter: Filter;
+  loading: boolean;
+  loaded: boolean;
 }
 
 export const initialState: BookState = {
@@ -19,4 +21,6 @@ export const initialState: BookState = {
   filter: {
     text: '',
   },
+  loading: false,
+  loaded: false
 };
