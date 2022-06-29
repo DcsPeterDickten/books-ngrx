@@ -11,6 +11,7 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { modules } from './modules';
 import { reducers } from './store';
 import { EffectsModule } from '@ngrx/effects';
+import { BookEffects } from './store/book/book.effects';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot(reducers),
     ReactiveFormsModule,
     modules,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([BookEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
