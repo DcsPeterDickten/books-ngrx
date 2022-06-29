@@ -25,7 +25,7 @@ export class CreateBookComponent implements OnInit {
   }
 
   submit() {
-    const book = { ...this.form.value };
+    const book = { ...this.form.value, id: Math.round(10000 * Math.random()) };
     this.store.dispatch(BooksActions.neuesBuch({ book }));
   }
 }
