@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "isbn": "42",
+      "title": "NgRx im Wandel der Jahreszeiten",
+      "author": "Peter D",
+      "category": "tech"
+    },
+    {
+      "isbn": "43",
+      "title": "Die Leiden des jungen Angular-Entwicklers",
+      "author": "Johann-Wolfgang Goethe",
+      "category": "tech"
+    }
+  ]
+}
