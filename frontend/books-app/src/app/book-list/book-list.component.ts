@@ -15,10 +15,12 @@ export class BookListComponent {
 
   books$: Observable<Book[]>;
   stats$: Observable<BookStats>;
+  loading$: Observable<boolean>;
 
   constructor(private store: Store<RootState>) {
     this.books$ = this.store.select(fromBook.selectFiltered);
     this.stats$ = this.store.select(fromBook.selectStats);
+    this.loading$ = this.store.select(fromBook.selectLoading);
   }
 
   search(text: string): void {

@@ -1,9 +1,7 @@
-<input
-  placeholder="Filtern nach ...."
-  #searchInput
-  type="text"
-  (input)="search(searchInput.value)"
-/>
+loading: {{loading$ | async}}
+<br />
+<br />
+<input placeholder="Filtern nach ...." #searchInput type="text" (input)="search(searchInput.value)" />
 
 Ergebnis: {{(books$ | async)?.length}}
 
@@ -16,7 +14,7 @@ Ergebnis: {{(books$ | async)?.length}}
   </li>
 </ul>
 
-<hr/>
+<hr />
 
 <div *ngIf="stats$ | async as stats">
   <p>
