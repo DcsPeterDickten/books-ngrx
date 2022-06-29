@@ -27,3 +27,6 @@ export const search = createAction(
   '[Book] Suche',
   props<{ text: string }>()
 );
+
+export const neuesBuchFehler = createAction(
+  "[Book] Fehler beim Anlegen");

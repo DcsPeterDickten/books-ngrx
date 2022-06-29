@@ -29,6 +29,10 @@ export const bookReducer = createReducer(
       },
       loading: false // neu
     };
-  })
+  }),
+  on(BookActions.neuesBuchFehler, (state) => ({
+    ...state,
+    loading: false,
+  }))
 );
 
