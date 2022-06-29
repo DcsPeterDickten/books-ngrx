@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import * as BookActions from './book.actions';
-import { initialState } from "./books.state";
+import { Books, initialState } from "./books.state";
 
 export const bookReducer = createReducer(
   initialState,
@@ -33,6 +33,16 @@ export const bookReducer = createReducer(
   on(BookActions.neuesBuchFehler, (state) => ({
     ...state,
     loading: false,
-  }))
+  })),
+  on(BookActions.buecherLadenErfolgreich, (state, { books }) => {
+    const entities: Books = {};
+    books.forEach((book) => (entities[book.isbn] = book));
+
+    return {
+      ...state,
+      entities,
+      loaded: true,
+    };
+  })
 );
 
