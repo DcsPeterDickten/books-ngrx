@@ -14,11 +14,11 @@ import { BookStats } from 'src/app/store/book/book.selectors';
 export class BookListComponent {
 
   books$: Observable<Book[]>;
-  bookStats$: Observable<BookStats>;
+  stats$: Observable<BookStats>;
 
   constructor(private store: Store<RootState>) {
     this.books$ = this.store.select(fromBook.selectFiltered);
-    this.bookStats$ = this.store.select(fromBook.selectStats);
+    this.stats$ = this.store.select(fromBook.selectStats);
   }
 
   search(text: string): void {

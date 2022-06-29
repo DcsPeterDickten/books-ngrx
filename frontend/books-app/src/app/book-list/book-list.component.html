@@ -15,3 +15,11 @@ Ergebnis: {{(books$ | async)?.length}}
     </p>
   </li>
 </ul>
+
+<hr/>
+
+<div *ngIf="stats$ | async as stats">
+  <p>
+    {{ stats.available }} / {{ stats.total }}
+  </p>
+</div>
