@@ -14,6 +14,13 @@ export const bookReducer = createReducer(
       }
 
     })
-  )
+  ),
+  on(BookActions.search, (state, { text }) => ({
+      ...state,
+      filter: {
+        ...state.filter,
+        text,
+      },
+    }))
 );
 

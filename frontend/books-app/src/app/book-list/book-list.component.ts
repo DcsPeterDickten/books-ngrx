@@ -15,7 +15,7 @@ export class BookListComponent {
   books$: Observable<Book[]>;
 
   constructor(private store: Store<RootState>) {
-    this.books$ = this.store.select(fromBook.selectAll);
+    this.books$ = this.store.select(fromBook.selectFiltered);
   }
 
   search(text: string): void {
