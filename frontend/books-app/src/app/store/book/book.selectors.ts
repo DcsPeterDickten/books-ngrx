@@ -51,3 +51,18 @@ export const selectFiltered = createSelector(
     return getMatchingBooks(books, text);
   }
 );
+
+export interface BookStats {
+  total: number;
+  available: number
+}
+
+export const selectStats = createSelector(
+  selectAll,
+  (books): BookStats => {
+    return {
+      total: books.length,
+      available: books.filter(b => b.available).length,
+    }
+  }
+);
