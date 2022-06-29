@@ -10,6 +10,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { modules } from './modules';
 import { reducers } from './store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { reducers } from './store';
     StoreModule.forRoot(reducers),
     ReactiveFormsModule,
     modules,
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]
