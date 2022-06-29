@@ -6,17 +6,6 @@ export const neuesBuch = createAction(
   props<{ book: Book }>() // << () nicht vergessen!
 );
 
-const action = neuesBuch({
-  book: {
-    isbn: '42',
-    title: '...',
-    author: '...',
-    category: 'poems',
-    available: true
-  }
-}
-);
-
 export const neuesBuchMitId = createAction(
   "[Book] Neuanlage",
   (book: Book) => {
@@ -29,10 +18,7 @@ export const neuesBuchMitId = createAction(
   }
 );
 
-const book2 = neuesBuchMitId({
-  isbn: '42',
-  title: '...',
-  author: '...',
-  category: 'poems',
-  available: true
-})
+export const search = createAction(
+  '[Book] Suche',
+  props<{ text: string }>()
+);

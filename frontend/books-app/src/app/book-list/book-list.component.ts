@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { RootState } from 'src/app/store/';
 import * as fromBook from 'src/app/store/book/book.selectors';
-
+import * as BookActions from 'src/app/store/book/book.actions';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -19,6 +19,6 @@ export class BookListComponent {
   }
 
   search(text: string): void {
-    // TODO
+    this.store.dispatch(BookActions.search({ text }));
   }
 }
