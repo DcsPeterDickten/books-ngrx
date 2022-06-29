@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
@@ -11,7 +11,7 @@ import { BookStats } from 'src/app/store/book/book.selectors';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent {
+export class BookListComponent implements OnInit {
 
   books$: Observable<Book[]>;
   stats$: Observable<BookStats>;
@@ -21,6 +21,10 @@ export class BookListComponent {
     this.books$ = this.store.select(fromBook.selectFiltered);
     this.stats$ = this.store.select(fromBook.selectStats);
     this.loading$ = this.store.select(fromBook.selectLoading);
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(BookActions.buecherLaden());
   }
 
   search(text: string): void {
