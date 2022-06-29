@@ -30,3 +30,13 @@ export const search = createAction(
 
 export const neuesBuchFehler = createAction(
   "[Book] Fehler beim Anlegen");
+
+// --- Laden ------------------------------------
+
+export const buecherLaden = createAction(
+  "[Book] Laden");
+
+export const buecherLadenErfolgreich = createAction(
+  "[Book] Laden erfolgreich",
+  props<{ books: Book[] }>()
+);
