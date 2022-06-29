@@ -18,6 +18,13 @@
       "author": "c",
       "category": "tech",
       "id": 41
+    },
+    {
+      "title": "c",
+      "isbn": "b",
+      "author": "a",
+      "category": "tech",
+      "id": 41
     }
   ]
 }

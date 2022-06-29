@@ -1,23 +1,22 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 
 import { map, mergeMap } from "rxjs/operators";
-import { Book } from "../../models/book";
 import * as BookActions from "./book.actions";
+import { BookService } from "./book.service";
 
 @Injectable()
 export class BookEffects {
 
   constructor(
     private action$: Actions,
-    private http: HttpClient) { }
+    private bookService: BookService) { }
 
   submit$ = createEffect(() =>
     this.action$.pipe(
       ofType(BookActions.neuesBuch),
-      mergeMap((action) => this.http.post<Book>(`http://localhost:3000/books`, action.book)),
+      mergeMap((action) => this.bookService.save(action.book)),
       map((book) => BookActions.neuesBuchGespeichert({ book }))
     )
   );
