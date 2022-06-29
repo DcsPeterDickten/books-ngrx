@@ -43,7 +43,7 @@ export const selectFilter = createSelector(
   ({ filter }) => filter
 );
 
-// Der gewünschte Selektor => verwenden wir :-)
+// Der gewünschte Selektor => endlich :-)
 export const selectFiltered = createSelector(
   selectAll,
   selectFilter,
